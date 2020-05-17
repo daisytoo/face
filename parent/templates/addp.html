@@ -1,0 +1,32 @@
+{% extends "basep.html" %}
+{% block content %}
+    <div class="layui-container">
+        <blockquote class="layui-elem-quote">
+            <h1>添加家长</h1>
+        </blockquote>
+
+        <div class="layui-row">
+
+            <div class="layui-col-md5">
+                <form action="/parent/addParent/" method="post" enctype="multipart/form-data"/>
+                    {% csrf_token %}
+                    <hr class="layui-bg-green">
+
+                    <input type="text" name="pname" id="pname" placeholder="姓名" class="layui-input"/>
+                    <hr class="layui-bg-green">
+
+                    <input type="text" name="ptel" id="ptel" placeholder="电话" class="layui-input"/>
+                    <hr class="layui-bg-green">
+
+                    <input type="text" name="sname" id="sname" placeholder="学生" class="layui-input"/>
+                    <hr class="layui-bg-green">
+
+                    <input type="file" name="pimg" id="pimg"/>
+
+                    <hr class="layui-bg-green">
+                    <input type="submit" value="添加" class="layui-btn"/>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

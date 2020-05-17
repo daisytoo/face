@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="layui-container">
+        <br></br>
+        <br></br>
+        <div class="layui-row">
+            <div class="layui-col-md3">&ensp;</div>
+            <div class="layui-col-md6">
+                <form action="/face/facepage/" method="post" enctype="multipart/form-data"/>
+                    {% csrf_token %}
+                    <label class="layui-label" >识别失败！</label>
+                    <hr class="layui-bg-green">
+                    <input type="submit" value="返回重新提交文件" class="layui-btn"/>
+                </form>
+            </div>
+            <div class="layui-col-md3">&ensp;</div>
+        </div>
+    </div>
+{% endblock %}
