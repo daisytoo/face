@@ -1,0 +1,36 @@
+{% extends "basep.html" %}
+{% block content %}
+    <div class="layui-container">
+        <blockquote class="layui-elem-quote">
+            <h1>更新教师信息</h1>
+        </blockquote>
+         <div class="layui-row">
+        {%for teacher in data%}
+            <div class="layui-col-md5">
+                <form action="/teacher/updateTeacher/" method="post" enctype="multipart/form-data"/>
+                    {% csrf_token %}
+                    <input type="text" name="tid" id="tid" placeholder="id" class="layui-input" value="{{ teacher.tid}}" />
+                    <hr class="layui-bg-green">
+
+                    <input type="text" name="tname" id="tname" placeholder="姓名" class="layui-input" value="{{ teacher.tname}}"/>
+                    <hr class="layui-bg-green">
+
+                    <input type="text" name="ttel" id="ttel" placeholder="电话" class="layui-input" value="{{ teacher.ttel}}"/>
+                    <hr class="layui-bg-green">
+
+
+                    <input type="text" name="cname" id="cname" placeholder="班级" class="layui-input" value="{{ teacher.cname }}"/>
+                    <hr class="layui-bg-green">
+
+                    <input type="file" name="timg" id="timg"/>
+                    <hr class="layui-bg-green">
+
+
+                    <input type="submit" value="修改" class="layui-btn"/>
+                </form>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+{% endblock %}

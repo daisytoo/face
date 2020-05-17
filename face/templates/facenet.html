@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="layui-container">
+        <blockquote class="layui-elem-quote">
+            <h1>人脸识别</h1>
+        </blockquote>
+        <br></br>
+        <div class="layui-row">
+            <div class="layui-col-md4">&ensp;</div>
+
+            <div class="layui-col-md4">
+                <form action="/face/facenet/" method="post" enctype="multipart/form-data"/>
+                    {% csrf_token %}
+                    <label class="layui-label" >请选择需要识别的照片</label>
+                    <br></br>
+                    <input type="file" name="simg" id="simg" style="font-size:20px;"/>
+
+                    <hr class="layui-bg-green">
+                    <input type="submit" value="添加" class="layui-btn"style="font-size:30px;"/>
+                </form>
+            </div>
+
+            <div class="layui-col-md4">&ensp;</div>
+        </div>
+    </div>
+{% endblock %}

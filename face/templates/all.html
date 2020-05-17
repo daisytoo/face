@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="layui-container">
+        <blockquote class="layui-elem-quote">
+            <h1>学生基本信息</h1>
+        </blockquote>
+        {# 查询学生模块 #}
+        <form action="/face/search" method="get">
+            <input placeholder="学生名" name="q" id="q">
+            <input type="submit" class="layui-btn" value="搜索">
+        </form>
+
+        {# 显示所有学生模块 #}
+        <table class="layui-table">
+      <colgroup>
+        <col width="150">
+        <col width="200">
+        <col>
+      </colgroup>
+      <thead>
+        <tr>
+            <th>id</th>
+            <th>姓名</th>
+            <th>班级</th>
+            <th>照片</th>
+            <th>修改</th>
+            <th>删除</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%for student in data%}
+            <tr>
+                <td>{{student.sid}}</td>
+                <td>{{student.sname}}</td>
+                <td>{{student.cid.cname}}</td>
+                <td>
+{#                    <img src="{{ MEDIA_URL }}{{ student.simg }}" height="50px">#}
+                    <img src="/static/media/{{ student.simg }}" height="50px">
+                </td>
+                <td>
+                    {# 修改学生模块 #}
+                    <a href="/face/get/{{ student.sid }}" class="layui-btn layui-btn-normal">
+                        <i class="layui-icon">&#xe642;</i>修改
+                    </a>
+                </td>
+                <td>
+                    {# 删除学生模块 #}
+                    <a href="/face/delete/{{ student.sid }}" class="layui-btn layui-btn-danger">
+                        <i class="layui-icon">&#xe640;</i>删除
+                    </a>
+                </td>
+            </tr>
+        {%endfor%}
+      </tbody>
+        </table>
+
+        {# 添加学生模块 #}
+        <a href="{% url 'face:add_page' %}" class="layui-btn layui-btn-warm">
+            <i class="layui-icon">&#xe654;</i> 添加
+        </a>
+    </div>
+{% endblock %}
+s='D:\code\django\face_matching\static\media\lixiaoming.jpg

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="layui-container">
+        <blockquote class="layui-elem-quote">
+            <h1>人脸识别</h1>
+        </blockquote>
+        <br></br>
+        <br></br>
+        <div class="layui-row">
+            <div class="layui-col-md3">&ensp;</div>
+            <div class="layui-col-md6">
+                <form action="/face/facecamera/" method="post" enctype="multipart/form-data"/>
+                    {% csrf_token %}
+                    <label class="layui-label" >点击”开始拍摄“后敲击“q"开始识别照片</label>
+                    <hr class="layui-bg-green">
+                    <input type="submit" value="开始拍摄" class="layui-btn"/>
+                </form>
+            </div>
+            <div class="layui-col-md3">&ensp;</div>
+        </div>
+    </div>
+{% endblock %}
